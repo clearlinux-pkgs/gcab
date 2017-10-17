@@ -4,7 +4,7 @@
 #
 Name     : gcab
 Version  : 0.7
-Release  : 4
+Release  : 5
 URL      : https://download.gnome.org/sources/gcab/0.7/gcab-0.7.tar.xz
 Source0  : https://download.gnome.org/sources/gcab/0.7/gcab-0.7.tar.xz
 Summary  : Cabinet file library
@@ -90,7 +90,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1508273763
+export SOURCE_DATE_EPOCH=1508276877
 %configure --disable-static
 make V=1  %{?_smp_mflags}
 
@@ -102,7 +102,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1508273763
+export SOURCE_DATE_EPOCH=1508276877
 rm -rf %{buildroot}
 %make_install
 %find_lang gcab
