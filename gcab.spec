@@ -4,7 +4,7 @@
 #
 Name     : gcab
 Version  : 0.7
-Release  : 10
+Release  : 11
 URL      : https://download.gnome.org/sources/gcab/0.7/gcab-0.7.tar.xz
 Source0  : https://download.gnome.org/sources/gcab/0.7/gcab-0.7.tar.xz
 Summary  : Cabinet file library
