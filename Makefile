@@ -1,5 +1,5 @@
 PKG_NAME := gcab
-URL = https://download.gnome.org/sources/gcab/0.7/gcab-0.7.tar.xz
-
+URL = https://download.gnome.org/sources/gcab/1.2/gcab-1.2.tar.xz
+ARCHIVES = 
 
 include ../common/Makefile.common
