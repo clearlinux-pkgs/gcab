@@ -4,7 +4,7 @@
 #
 Name     : gcab
 Version  : 1.2
-Release  : 14
+Release  : 15
 URL      : https://download.gnome.org/sources/gcab/1.2/gcab-1.2.tar.xz
 Source0  : https://download.gnome.org/sources/gcab/1.2/gcab-1.2.tar.xz
 Summary  : A GObject library to create cabinet files
@@ -37,7 +37,6 @@ Summary: bin components for the gcab package.
 Group: Binaries
 Requires: gcab-data = %{version}-%{release}
 Requires: gcab-license = %{version}-%{release}
-Requires: gcab-man = %{version}-%{release}
 
 %description bin
 bin components for the gcab package.
@@ -58,6 +57,7 @@ Requires: gcab-lib = %{version}-%{release}
 Requires: gcab-bin = %{version}-%{release}
 Requires: gcab-data = %{version}-%{release}
 Provides: gcab-devel = %{version}-%{release}
+Requires: gcab = %{version}-%{release}
 
 %description dev
 dev components for the gcab package.
@@ -114,7 +114,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549290135
+export SOURCE_DATE_EPOCH=1556997566
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --prefix /usr --buildtype=plain   builddir
 ninja -v -C builddir
 
