@@ -1,8 +1,19 @@
+v1.4
+====
+
+New Features:
+ - New GDateTime-based APIs
+ - Allow comping as meson subproject
+
+Bugfixes:
+ - build-sys fixes
+ - MacOS/Windows build support
+
 v1.3
 ====
 
 New Features:
-  - Installed test support (Simon McVittie)
+ - Installed test support (Simon McVittie)
 
 Bugfixes:
  - Fix file corruption on LZX extract
