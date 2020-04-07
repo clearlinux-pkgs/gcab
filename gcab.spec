@@ -4,10 +4,10 @@
 #
 Name     : gcab
 Version  : 1.4
-Release  : 17
+Release  : 18
 URL      : https://download.gnome.org/sources/gcab/1.4/gcab-1.4.tar.xz
 Source0  : https://download.gnome.org/sources/gcab/1.4/gcab-1.4.tar.xz
-Summary  : A GObject library to create cabinet files
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
 Requires: gcab-bin = %{version}-%{release}
@@ -57,7 +57,6 @@ Requires: gcab-lib = %{version}-%{release}
 Requires: gcab-bin = %{version}-%{release}
 Requires: gcab-data = %{version}-%{release}
 Provides: gcab-devel = %{version}-%{release}
-Requires: gcab = %{version}-%{release}
 Requires: gcab = %{version}-%{release}
 
 %description dev
@@ -116,18 +115,24 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1578330050
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1586224572
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain   builddir
 ninja -v -C builddir
+
+%check
+export LANG=C.UTF-8
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
+meson test -C builddir
 
 %install
 mkdir -p %{buildroot}/usr/share/package-licenses/gcab
