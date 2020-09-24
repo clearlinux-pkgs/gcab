@@ -4,7 +4,7 @@
 #
 Name     : gcab
 Version  : 1.4
-Release  : 18
+Release  : 19
 URL      : https://download.gnome.org/sources/gcab/1.4/gcab-1.4.tar.xz
 Source0  : https://download.gnome.org/sources/gcab/1.4/gcab-1.4.tar.xz
 Summary  : No detailed summary available
