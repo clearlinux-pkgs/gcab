@@ -4,21 +4,14 @@
 #
 Name     : gcab
 Version  : 1.5
-Release  : 20
+Release  : 21
 URL      : https://download.gnome.org/sources/gcab/1.5/gcab-1.5.tar.xz
 Source0  : https://download.gnome.org/sources/gcab/1.5/gcab-1.5.tar.xz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
-Requires: gcab-bin = %{version}-%{release}
-Requires: gcab-data = %{version}-%{release}
-Requires: gcab-lib = %{version}-%{release}
-Requires: gcab-license = %{version}-%{release}
-Requires: gcab-locales = %{version}-%{release}
-Requires: gcab-man = %{version}-%{release}
 BuildRequires : buildreq-gnome
 BuildRequires : buildreq-meson
-BuildRequires : docbook-xml
 BuildRequires : gtk-doc
 BuildRequires : vala
 Patch1: backport-meson-git-version-is-optional.patch
@@ -33,91 +26,24 @@ CC=afl-gcc meson --default-library=static ../
 AFL_HARDEN=1 ninja
 afl-fuzz -m 300 -i ../tests/fuzzing/ -o findings ./src/gcab-fuzz @@
 
-%package bin
-Summary: bin components for the gcab package.
-Group: Binaries
-Requires: gcab-data = %{version}-%{release}
-Requires: gcab-license = %{version}-%{release}
-
-%description bin
-bin components for the gcab package.
-
-
-%package data
-Summary: data components for the gcab package.
-Group: Data
-
-%description data
-data components for the gcab package.
-
-
-%package dev
-Summary: dev components for the gcab package.
-Group: Development
-Requires: gcab-lib = %{version}-%{release}
-Requires: gcab-bin = %{version}-%{release}
-Requires: gcab-data = %{version}-%{release}
-Provides: gcab-devel = %{version}-%{release}
-Requires: gcab = %{version}-%{release}
-
-%description dev
-dev components for the gcab package.
-
-
-%package doc
-Summary: doc components for the gcab package.
-Group: Documentation
-Requires: gcab-man = %{version}-%{release}
-
-%description doc
-doc components for the gcab package.
-
-
-%package lib
-Summary: lib components for the gcab package.
-Group: Libraries
-Requires: gcab-data = %{version}-%{release}
-Requires: gcab-license = %{version}-%{release}
-
-%description lib
-lib components for the gcab package.
-
-
-%package license
-Summary: license components for the gcab package.
-Group: Default
-
-%description license
-license components for the gcab package.
-
-
-%package locales
-Summary: locales components for the gcab package.
-Group: Default
-
-%description locales
-locales components for the gcab package.
-
-
-%package man
-Summary: man components for the gcab package.
-Group: Default
-
-%description man
-man components for the gcab package.
-
-
 %prep
 %setup -q -n gcab-1.5
 cd %{_builddir}/gcab-1.5
+<<<<<<< Updated upstream
 %patch1 -p1
+=======
+>>>>>>> Stashed changes
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
+<<<<<<< Updated upstream
 export SOURCE_DATE_EPOCH=1661965875
+=======
+export SOURCE_DATE_EPOCH=1661289295
+>>>>>>> Stashed changes
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -140,10 +66,10 @@ meson test -C builddir --print-errorlogs
 mkdir -p %{buildroot}/usr/share/package-licenses/gcab
 cp %{_builddir}/gcab-%{version}/COPYING %{buildroot}/usr/share/package-licenses/gcab/01a6b4bf79aca9b556822601186afab86e8c4fbf
 DESTDIR=%{buildroot} ninja -C builddir install
-%find_lang gcab
 
 %files
 %defattr(-,root,root,-)
+<<<<<<< Updated upstream
 
 %files bin
 %defattr(-,root,root,-)
@@ -206,3 +132,5 @@ DESTDIR=%{buildroot} ninja -C builddir install
 %files locales -f gcab.lang
 %defattr(-,root,root,-)
 
+=======
+>>>>>>> Stashed changes
